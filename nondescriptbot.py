@@ -22,22 +22,28 @@ for attempt in range(5):
 if not logged_in:
     sys.exit('Failed to log in.')
 
-# Search Wikipedia for book entries, excluding books that have already 
-# been crawled, copy the first paragraph from the description of each 
-# book, and convert the text to the correct format for Open Library.
+# Search Open Library for a particular book, and display its description, 
+# or lack of description. Ask the user if they want to edit the 
+# description.
+
+
+
+
+# Search Wikipedia for the same book, and copy the first paragraph of the 
+# Wikipedia article.
+
+
+
+
+# Format the paragraph for Open Library by converting it to Markdown, 
+# removing footnote indicators, and adding CC license information.
 
 
 
 
 
-# Search Open Library for each of the books from the Wikipedia crawl, 
-# check if they have descriptions, and add the descriptions from Wikipedia 
-# if they don't.
-
-
-
-
-
-# Save all of the new book descriptions.
+# Display the formatted description, and ask the user to confirm that it 
+# is correct, and that they want to save it. If they answer yes, save the 
+# updated description to Open Library.
 
 
