@@ -15,27 +15,29 @@ for attempt in range(5):
     try:
         ol.login('nondescriptbot', password)
         logged_in = True
-        print 'login successful'
+        print 'Login successful.'
         break
     except:
         print 'ol.login() error; retrying'
 if not logged_in:
     sys.exit('Failed to log in.')
 
-# Search Open Library for books that don't have descriptions yet.
+# Search Wikipedia for book entries, excluding books that have already 
+# been crawled, copy the first paragraph from the description of each 
+# book, and convert the text to the correct format for Open Library.
 
 
 
-# Search Wikipedia to find out which books in the list have entries.
 
 
+# Search Open Library for each of the books from the Wikipedia crawl, 
+# check if they have descriptions, and add the descriptions from Wikipedia 
+# if they don't.
 
-# For the books that have Wikipedia entries, take the first paragraph of 
-# the entry and make that their Open Library description.
+
 
 
 
 # Save all of the new book descriptions.
-
 
 
