@@ -4,6 +4,7 @@
 
 import sys
 import cmd
+import json
 import textwrap
 from olapi import OpenLibrary
 # secrets.py holds the login password, and is excluded from version control
@@ -34,10 +35,12 @@ class NondescriptCmd(cmd.Cmd):
 
   def do_get_by_olid(self, olid):
     work = ol.get("/works/" + olid)
+    title = work["title"]
+    authors = work["authors"]
     print "Title:"
-    print "\"" + work["title"] + "\""
+    print "\"" + title + "\""
     print "Author(s):"
-    print work["authors"]
+    print authors
     print "Description:"
     if work.has_key("description"):
       description = work["description"]
@@ -47,7 +50,8 @@ class NondescriptCmd(cmd.Cmd):
 
   def do_get_by_title(self, title):
     work = ol.query({"type": "/type/work", "title": title})
-    print work
+    for key in work:
+      print key 
 
 
 # Start the command interpreter up.
