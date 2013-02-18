@@ -34,12 +34,20 @@ class NondescriptCmd(cmd.Cmd):
 
   def do_get_by_olid(self, olid):
     work = ol.get("/works/" + olid)
+    print "Title:"
     print "\"" + work["title"] + "\""
+    print "Author(s):"
+    print work["authors"]
+    print "Description:"
     if work.has_key("description"):
       description = work["description"]
       print textwrap.fill(description)
     else:
       print "No description for this work!"
+
+  def do_get_by_title(self, title):
+    work = ol.query({"type": "/type/work", "title": title})
+    print work
 
 
 # Start the command interpreter up.
