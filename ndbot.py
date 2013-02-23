@@ -36,11 +36,17 @@ class NondescriptCmd(cmd.Cmd):
   def do_get_by_olid(self, olid):
     work = ol.get("/works/" + olid)
     title = work["title"]
-    authors = work["authors"]
     print "Title:"
     print "\"" + title + "\""
     print "Author(s):"
-    print authors
+    if work.has_key("authors"):
+      authors = work["authors"]
+      print authors
+    elif work.has_key("author"):
+      authors = work["author"]
+      print authors
+    else:
+      print "No author for this work!"
     print "Description:"
     if work.has_key("description"):
       description = work["description"]
